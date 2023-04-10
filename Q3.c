@@ -1,14 +1,45 @@
 #include<stdio.h>
-void main()
-{
-    int n,x,sum=0;
-    printf("enter a number");
-    scanf("%d",&n);
-    do{
-        x=n%10;
-        sum=sum+x;
-        n=n/10;
-    }while(n>0);
-    printf("sum of digit is %d",sum);
 
+void asc_sort(int a[10], int n)
+{
+    int i, j, temp;
+    for(i=0;i< n-1;i++)
+    {
+        for(j=i+1;j< n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+}
+
+
+
+
+int main()
+{
+     int a[100], i, n;
+ 
+    printf("Enter n:\n");
+    scanf("%d", &n);
+ 
+ 
+    for(i=0;i< n;i++)
+    {
+        printf("a[%d]=",i);
+        scanf("%d", &a[i]);
+    }
+
+    asc_sort(a,n);
+
+    printf("Array in ascending order is:\n");
+    for(i=0;i< n;i++)
+    {
+        printf("%d\t", a[i]);
+    }
+ 
 }
